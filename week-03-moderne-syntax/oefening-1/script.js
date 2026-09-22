@@ -9,21 +9,21 @@
 //  Herschrijf naar een arrow function
 // ------------------------------------------------------------
 
-function calculateArea(breedte, hoogte) {
+const calculateArea = (breedte, hoogte) => {
   return breedte * hoogte;
 }
 
 // Toon het resultaat in de DOM — dit hoef je niet aan te passen:
 document.getElementById('result-area').textContent =
-  'Oppervlak: ' + calculateArea(5, 3);
+  `Oppervlak: calculateArea(5, 3)`;
 
 // ------------------------------------------------------------
 //  2. Template literal & arrow function
 //  Herschrijf naar een arrow function + template literal
 // ------------------------------------------------------------
 
-function makeSentence(naam, stad) {
-  return 'Hallo, ik ben ' + naam + ' en ik woon in ' + stad;
+const makeSentence =(naam, stad) => {
+  return `Hallo, ik ben ${naam} en ik woon in ${stad}`;
 }
 
 // Toon het resultaat in de DOM — dit hoef je niet aan te passen:
@@ -40,7 +40,7 @@ document.getElementById('result-sentence').textContent = makeSentence(
 
 const brands = ['Nike', 'Adidas', 'Dior', 'New Balance'];
 
-function showBrands(brands) {
+const showBrands =(brands) => {
   for (let i = 0; i < brands.length; i++) {
     console.log(brands[i]);
   }
