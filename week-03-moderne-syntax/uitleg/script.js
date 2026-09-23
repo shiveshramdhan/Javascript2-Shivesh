@@ -19,3 +19,17 @@ const showName = (name) => {
  for (let i = 0; i < fruits.length; i++) {
     console.log(fruits[i]);
  }
+
+ let title = document.getElementById("title");
+ let btn = document.getElementById("btn");
+ let section = document.getElementById("section");
+
+ btn.addEventListener("click", () => {
+     title.textContent = "ik heb geklikt!";
+     title.classList.toggle("active");
+
+     const p = document.createElement("p");
+     p.textContent = "ik ben een paragraaf";
+        section.appendChild(p);
+     
+ })
