@@ -9,15 +9,21 @@
   <main>
     <section>
       <h2>Zoek op beginletter (find + startsWith)</h2>
-      <label for="search-find">Beginletter:</label>
-      <input type="text" id="search-find" placeholder="Typ een letter...">
-      <output id="output-find"></output>
+      <form id="form-find">
+        <label for="search-find">Beginletter:</label>
+        <input type="text" id="search-find" placeholder="Typ een letter...">
+        <button type="submit">Zoeken</button>
+        <output id="output-find"></output>
+      </form>
     </section>
     <section>
       <h2>Staat naam in de lijst? (includes + toLowerCase)</h2>
-      <label for="search-includes">Naam:</label>
-      <input type="text" id="search-includes" placeholder="Typ een naam...">
-      <output id="output-includes"></output>
+      <form id="form-includes">
+        <label for="search-includes">Naam:</label>
+        <input type="text" id="search-includes" placeholder="Typ een naam...">
+        <button type="submit">Controleren</button>
+        <output id="output-includes"></output>
+      </form>
     </section>
   </main>
   <script src="script.js"></script>
