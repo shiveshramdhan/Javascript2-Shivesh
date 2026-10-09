@@ -1,1 +1,0 @@
-const genres = ["pop","rock","hiphop","metal",'rock',"white girl"]
