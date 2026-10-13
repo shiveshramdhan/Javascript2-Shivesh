@@ -1,32 +1,75 @@
-const users = [
-  { name: 'Jan de Vries',  email: 'jan@bedrijf.nl',  role: 'admin', active: true  },
-  { name: 'Lisa Bakker',   email: 'lisa@bedrijf.nl', role: 'user',  active: true  },
-  { name: 'Tom Visser',    email: 'tom@bedrijf.nl',  role: 'user',  active: false },
-  { name: 'Sara Meijer',   email: 'sara@bedrijf.nl', role: 'admin', active: true  },
-];
-
 let filter = 'all';
 
-const showUsers = (users) => {
-  // Gebruik destructuring voor elke user: const { name, email, role, active } = user
-  // Toon elke user als een <article> in #users
+const userList = document.getElementById('users');
+const filterAdminButton = document.getElementById('filter-admin');
+const filterAllButton = document.getElementById('filter-all');
+const userForm = document.getElementById('user-form');
+
+const users = [
+  { name: 'Jan de Vries', email: 'jan@bedrijf.nl', role: 'admin', active: true },
+  { name: 'Lisa Bakker', email: 'lisa@bedrijf.nl', role: 'user', active: true },
+  { name: 'Tom Visser', email: 'tom@bedrijf.nl', role: 'user', active: false },
+  { name: 'Sara Meijer', email: 'sara@bedrijf.nl', role: 'admin', active: true },
+];
+
+
+
+const showUsers = (usersToShow) => {
+  userList.innerHTML = usersToShow
+    .map((user) => {
+      const { name, email, role, active } = user;
+      return `
+        <article>
+          <h3>${name}</h3>
+          <p>${email}</p>
+          <p>Rol: ${role}</p>
+          <p>Status: ${active ? 'Actief' : 'Inactief'}</p>
+        </article>
+      `;
+    })
+    .join('');
 };
 
 const filterUsers = () => {
-  // Als filter 'admin' is, toon alleen gebruikers met role === 'admin'
-  // Anders toon je alle gebruikers
-  // Roep showUsers() aan met de gefilterde lijst
+  const filteredUsers = filter === 'admin'
+    ? users.filter((user) => user.role === 'admin')
+    : users;
+
+  showUsers(filteredUsers);
 };
 
-// Maak een eventlistener voor de #filter-admin button
-// Zet filter op 'admin' en roep filterUsers() aan
+filterAdminButton.addEventListener('click', () => {
+  filter = 'admin';
+  filterUsers();
+});
 
-// Maak een eventlistener voor de #filter-all button
-// Zet filter op 'all' en roep filterUsers() aan
+filterAllButton.addEventListener('click', () => {
+  filter = 'all';
+  filterUsers();
+});
 
-// Maak een eventlistener voor het #user-form submit event
-// Lees naam, email en role uit de invoervelden
-// Maak een nieuw user object aan met spread op een default object
-// Voeg toe aan de array en roep filterUsers() aan
+userForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const roleInput = document.getElementById('role');
+
+  const newUser = {
+    ...{
+      name: '',
+      email: '',
+      role: 'user',
+      active: true,
+    },
+    name: nameInput.value,
+    email: emailInput.value,
+    role: roleInput.value,
+  };
+
+  users.push(newUser);
+  filterUsers();
+  userForm.reset();
+});
 
 filterUsers();
