@@ -1,1 +1,6 @@
-[]
+[
+  { "title": "Inception", "director": "Christopher Nolan", "year": 2010, "genre": "Sciencefiction" },
+  { "title": "Spirited Away", "director": "Hayao Miyazaki", "year": 2001, "genre": "Animatie" },
+  { "title": "The Grand Budapest Hotel", "director": "Wes Anderson", "year": 2014, "genre": "Komedie" },
+  { "title": "Parasite", "director": "Bong Joon-ho", "year": 2019, "genre": "Thriller" }
+]

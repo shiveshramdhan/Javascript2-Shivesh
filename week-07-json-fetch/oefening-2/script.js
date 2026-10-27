@@ -1,4 +1,15 @@
-// Vul eerst movies.json met minimaal 4 films:
-// [{"title":"","director":"","year":0,"genre":""}]
+const filmsSection = document.querySelector('#films');
 
-// Schrijf daarna de fetch zelf (zelfde patroon als oefening 1)
+fetch('./movies.json')
+  .then(response => response.json())
+  .then(movies => {
+    for(let film of movies)
+        filmsSection.innerHTML += `
+        <h3>${film.title}</h3>
+        <p>${film.director}</p>
+        <p>${film.year}</p>
+        <p>${film.genre}</p>
+
+        `
+  })
+
