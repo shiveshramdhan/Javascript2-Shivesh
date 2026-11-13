@@ -105,9 +105,8 @@ main {
   color: white;
 }
 
-.favorite-btn:disabled {
+.favorite-btn.is-favorite {
   background: #fef3c7;
   color: #b45309;
   border-color: #fbbf24;
-  cursor: default;
 }
